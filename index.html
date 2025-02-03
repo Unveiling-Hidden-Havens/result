@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unveiling Hidden Havens</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        input, button { padding: 10px; margin: 10px; }
+        img, iframe { width: 100%; max-width: 600px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unveiling Hidden Havens</h1>
+        <h2>Breteau Index Calculator</h2>
+        <label for="positive-containers">Positive Containers:</label>
+        <input type="number" id="positive-containers" required>
+        <label for="houses-inspected">Houses Inspected:</label>
+        <input type="number" id="houses-inspected" required>
+        <button onclick="calculateIndex()">Go</button>
+        
+        <h3>Map of Nallur Area, Jaffna</h3>
+        <img src="image.png" alt="Map of Nallur Area, Jaffna">
+        
+        <h3>Dengue Prevention Video</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Fixp7OAYFfA" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <script>
+        function calculateIndex() {
+            let positive = document.getElementById('positive-containers').value;
+            let houses = document.getElementById('houses-inspected').value;
+            if (positive && houses) {
+                let index = (positive / houses) * 100;
+                localStorage.setItem('breteauIndex', index.toFixed(2));
+                window.location.href = 'result.html';
+            } else {
+                alert('Please enter valid numbers');
+            }
+        }
+    </script>
+</body>
+</html>
